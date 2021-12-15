@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign up</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+</head>
+<body>
+  <h1>PROJECT CREATED BY NITIN MAHALE</h1>
+    <h2>Sign up</h2>
+    <form action="/signup" method="post">
+      {% csrf_token %}
+      {% for field in form %}
+        <p>
+          {{ field.label_tag }}<br>
+          {{ field }}
+          {% if field.help_text %}
+            <small style="color: grey">{{ field.help_text }}</small>
+          {% endif %}
+          {% for error in field.errors %}
+            <p style="color: red">{{ error }}</p>
+          {% endfor %}
+          </p>
+      {% endfor %}
+      <button type="submit">Sign up</button>
+    </form>
+
+
+    <script>
+      $(document).ready(function() {
+         $('#id_birth_date').datepicker({firstDay: 1,
+            dateFormat: "dd/mm/yy",
+            defaultDate: "15/12/2003",
+            minDate: "01/01/1950",
+            maxDate: "15/12/2003"});
+      });
+  </script>
+
+</body>
+</html>
