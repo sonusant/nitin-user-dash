@@ -28,7 +28,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['https://nitin-user-dash.herokuapp.com/',
     'localhost',
-'127.0.0.1']
+'127.0.0.1',
+'nitin-user-dash.herokuapp.com']
 
 # Application definition
 
